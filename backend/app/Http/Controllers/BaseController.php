@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
+use App\Models\Discount;
 use App\Models\Product;
 
 use function PHPUnit\Framework\isEmpty;
@@ -46,11 +47,6 @@ class BaseController extends Controller
     }
 
 
-    /**
-     * return error response.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function CollectionPagination($data, $request)
     {
         if (isEmpty($request->per_page) && isEmpty($request->limit)) {

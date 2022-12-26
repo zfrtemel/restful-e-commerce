@@ -30,4 +30,18 @@ class Product extends Model
     {
         return Category::where('id', $this->category_id)->first();
     }
+    public function getProductPriceAttribute()
+    {
+        $discounts = Discount::where('discount_type', 1)->where('discount_status', 1)->get();
+        $discount_price = number_format($this->attributes['product_price'], 2);
+        foreach ($discounts as $disc_key => $discount) {
+            foreach ($this->fillable as $key => $value) {
+                if ($value == $discount->target_column) {
+                    $discount_price -= number_format($discount_price, 2) * number_format($discount->discount_amount, 2) / 100;
+                }
+            }
+        }
+        
+        return number_format($discount_price, 2);
+    }
 }

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('discount_name');
             $table->string('discount_description');
-            $table->string('discount_column');
-            $table->string('discount_condition');
-            $table->string('discount_value');
-            $table->string('discount_type');
-            $table->string('discount_status');
-            $table->string('discount_start_date');
-            $table->string('discount_end_date');
+            $table->string('target_column');
+            $table->string('target_condition');
+            $table->string('target_value');
+            $table->decimal('discount_amount', 8, 2);
+            $table->boolean('discount_type');
+            $table->boolean('discount_status');
+            $table->date('discount_start_date');
+            $table->date('discount_end_date');
             $table->timestamps();
         });
     }
