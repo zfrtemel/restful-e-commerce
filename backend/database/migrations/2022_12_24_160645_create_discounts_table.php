@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('target_condition');
             $table->string('target_value');
             $table->decimal('discount_amount', 8, 2);
-            $table->boolean('discount_type');
+            $table->smallInteger('discount_type')->comment('1: product, 2: category, 3: cart 4:cart.product 5:cart.category');
             $table->boolean('discount_status');
             $table->date('discount_start_date');
             $table->date('discount_end_date');

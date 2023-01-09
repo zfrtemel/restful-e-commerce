@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('product_price', 8, 2);
             $table->bigInteger('product_quantity');
             $table->bigInteger('category_id');
+            $table->bigInteger('product_stock');
             $table->smallInteger('product_status');
             $table->string('product_slug');
             $table->string('product_code');

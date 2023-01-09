@@ -23,6 +23,7 @@ class ProductFactory extends Factory
             'product_price' => fake()->randomDigit(),
             'product_quantity' => 25,
             'product_status' => "1",
+            'product_stock' => random_int(1, 100),
             "category_id" => \App\Models\Category::factory(),
             'product_slug' => Str::slug(fake()->name(), '-'),
             'product_code' => fake()->name(),
